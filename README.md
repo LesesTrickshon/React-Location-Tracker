@@ -1,6 +1,7 @@
 # React-Location-Tracker
 A location Tracker built in React and Typescript
-(I might put an image here)
+
+   <img src="https://github.com/LesesTrickshon/React-Location-Tracker/blob/main/src/assets/thumbnail.png?raw=true" style="border-radius: 10px;"/>
 
 ## Installation Tutorial
 ### 1. Clone the Repo
