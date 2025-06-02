@@ -12,7 +12,7 @@ A location Tracker built in React and Typescript
   You should use [bun](https://bun.sh/) but [npm](https://nodejs.org/) should work as well.
   ```Bash
   # Enter the Project
-  cd location-with-react
+  cd React-Location-Tracker
 
   # Install Dependancies
   bun install
