@@ -13,7 +13,14 @@ export function success(
     lon: Number(position.coords.longitude.toFixed(5)),
     id: id,
   };
-  setPlaces((prev: any[]) => [...prev, data]);
+
+  setPlaces((prev: any[]) => {
+    if (prev.length === 0 || data.id !== prev[prev.length - 1].id) {
+      return [...prev, data];
+    } else {
+      return prev;
+    }
+  });
 }
 
 export function error() {

@@ -8,10 +8,10 @@ function App() {
   const [lon, setLon] = useState(null);
   const [places, setPlaces] = useState([]) as any[];
   const [distance, setDistance] = useState(0);
-  let id: number = 0;
+  let id: number = -1;
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const getCoords = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => success(position, setLat, setLon, id, setPlaces),
@@ -21,8 +21,13 @@ function App() {
       } else {
         alert("Could not get location");
       }
-    }, 10000);
+    };
 
+    getCoords();
+
+    const interval = setInterval(() => {
+      getCoords();
+    }, 5000);
     // Stops when Site reloads. Prevents mem leak
     return () => clearInterval(interval);
   }, []);
@@ -30,7 +35,6 @@ function App() {
   useEffect(() => {
     for (let i = 0; i < places.length; i++) {
       if (i > 0) {
-        console.log("From useEffect [places]: ", places);
         setDistance(
           haversine(
             places[i].lat,
@@ -55,14 +59,14 @@ function App() {
       <div className="places">
         {places.map((ort: any) => (
           <span key={ort.id}>
-            Lat: {ort.lat}, Lon: {ort.lon}
+            Lat: {ort.lat}, Lon: {ort.lon} ID: {ort.id}
           </span>
         ))}
       </div>
 
       <div className="distance">
-        <h2>{distance}km bewegt</h2>
-        <h3>{distance * 1000} Meter</h3>
+        <h2>{distance.toFixed(3)}km bewegt</h2>
+        <h3>{Number(distance.toFixed(3)) * 1000} Meter</h3>
       </div>
     </>
   );
