@@ -27,7 +27,7 @@ function App() {
 
     const interval = setInterval(() => {
       getCoords();
-    }, 5000);
+    }, 30000);
     // Stops when Site reloads. Prevents mem leak
     return () => clearInterval(interval);
   }, []);
