@@ -3,6 +3,8 @@ A location Tracker built in React and Typescript
 
    <img src="https://github.com/LesesTrickshon/React-Location-Tracker/blob/main/src/assets/thumbnail.png?raw=true" style="border-radius: 10px;"/>
 
+### [Test It Out](https://leafs-react-location-tracker.netlify.app/)
+
 ## Installation Tutorial
 ### 1. Clone the Repo
    ```Bash
